@@ -1,0 +1,21 @@
+<?php
+
+?><?php $items = $this->getItems(); ?>
+<?php if (count($items)) : ?>
+    <ul>
+        <?php foreach ($items as $item): ?>
+            <li>
+                <input type="hidden" name="url" value="<?php echo $item['url'] ?>">
+                <ol><?php echo $item['content'] ?></ol>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+    <?php if ($this->isCanShowAllResultsButton()) : ?>
+        <div class="aw-sas-all-results-wrapper">
+            <a href="<?php echo $this->getResultUrl(Mage::helper('search')->getSearchedQuery()); ?>" class="aw-sas-all-results"><?php echo $this->__('All Results'); ?></a>
+        </div>
+    <?php endif; ?>
+<?php else : ?>
+    <ul style="display:none;"><li class="aw-sas-empty"></li></ul>
+    <div><?php echo $this->__('Nothing found'); ?></div>
+<?php endif; ?>
