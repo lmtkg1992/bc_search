@@ -1,0 +1,40 @@
+<?php
+?><div class="yui-ac">
+    <div id="myContainer" class="search-autocomplete yui-ac-container" style="display: none;">
+        <div class="yui-ac-content">
+            <div class="yui-ac-hd" >
+                <?php echo $this->getUpdateChoicesElementHeader() ?>
+            </div>
+            <div class="yui-ac-bd" id="sac-suggest"></div>
+            <div class="yui-ac-bd" id="sac-results"></div>
+            <div class="yui-ac-ft">
+                <?php echo $this->getUpdateChoicesElementFooter() ?>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    //<![CDATA[
+    var BcSearchInstance = new BcSearchAutoComplete({
+        targetElementSelector: "#search",
+        updateChoicesContainerSelector: "#myContainer",
+        updateChoicesElementSelector: "#sac-results",
+        updateSuggestListSelector: "#sac-suggest",
+        nativeSearchUpdateChoicesElementSelector: "#search_autocomplete",
+
+        queryParam: <?php echo $this->getQueryParamKey() ?>,
+        newHTMLIdForTargetElement: 'myInput',
+
+        url: <?php echo $this->getSearchUrl(); ?>,
+        queryDelay: 0.5,
+        openInNewWindow: <?php echo $this->getIsOpenInNewWindow()?>,
+        indicatorImage: <?php echo $this->getIndicatorImage() ?>
+    });
+
+    Event.observe(window, "resize", function(){
+        BcSearchInstance.updateAutocompletePosition();
+    });
+    //]]>
+</script>

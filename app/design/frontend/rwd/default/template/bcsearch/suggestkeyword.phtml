@@ -1,0 +1,14 @@
+<?php
+
+?>
+    <div class="aw-sas-suggest">
+        <h5>
+            <?php echo $this->__('Suggested keywords: ');?>
+            <?php $index = 0; $count = count($this->getSuggests());?>
+            <?php foreach ($this->getSuggests() as $suggestItem): ?>
+            <a href="<?php echo $this->getResultUrl($suggestItem->getQueryText());?>">
+                <?php echo $this->__('%s(%s)', $suggestItem->getQueryText(), $suggestItem->getNumResults());?>
+                </a><?php echo ((++$index)<$count)?',':''; ?>
+            <?php endforeach; ?>
+        </h5>
+    </div>

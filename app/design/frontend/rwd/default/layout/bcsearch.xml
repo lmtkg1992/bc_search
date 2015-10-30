@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+        <reference name="head">
+            <action method="addCss"><stylesheet>css/bcsearch.css</stylesheet></action>
+            <action method="addJs"><script>bc_search/bcsearch.js</script></action>
+            <action method="addItem"><type>skin_js</type><name>js/bcsearch.js</name></action>
+        </reference>
+        <reference name="before_body_end">
+            <block type="search/init" name="top.search" as="topsearch" template="bcsearch/init.phtml" />
+        </reference>
+    </default>
+    <bc_search_ajax_suggest>
+        <reference name="content">
+            <block type="search/suggestkeyword" name="suggestkeyword" template="bcsearch/suggestkeyword.phtml" />
+            <block type="search/resultsearch" name="resultsearch" template="bcsearch/resultsearch.phtml" />
+        </reference>
+    </bc_search_ajax_suggest>
+</layout>
