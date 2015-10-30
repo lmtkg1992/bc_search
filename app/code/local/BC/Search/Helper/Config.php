@@ -1,5 +1,5 @@
 <?php
-class BC_Search_Helper_Config extends Mage_Core_Helper_Abstract{
+class Bc_Search_Helper_Config extends Mage_Core_Helper_Abstract{
 
     const CONFIG_PATH_APPEARANCE_ITEM_TEMPLATE = "search/appearance/item_template";
     const CONFIG_PATH_APPEARANCE_SHOW_MAX_PRODUCT = "search/appearance/show_max_product";

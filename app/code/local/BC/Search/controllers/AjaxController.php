@@ -1,7 +1,7 @@
 <?php
 
 
-class BC_Search_AjaxController extends Mage_Core_Controller_Front_Action
+class Bc_Search_AjaxController extends Mage_Core_Controller_Front_Action
 {
     public function suggestAction()
     {

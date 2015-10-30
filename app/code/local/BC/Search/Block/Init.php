@@ -1,5 +1,5 @@
 <?php
-class BC_Search_Block_Init extends Mage_Core_Block_Template
+class Bc_Search_Block_Init extends Mage_Core_Block_Template
 {
     /**
      * @return string

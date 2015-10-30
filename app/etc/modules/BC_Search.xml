@@ -1,8 +1,8 @@
 <config>
     <modules>
-        <BC_Search>
+        <Bc_Search>
             <active>true</active>
             <codePool>local</codePool>
-        </BC_Search>
+        </Bc_Search>
     </modules>
 </config>

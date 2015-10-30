@@ -1,6 +1,6 @@
 <?php
 
-class BC_Search_Block_SuggestKeyword extends Mage_Catalog_Block_Product_List
+class Bc_Search_Block_SuggestKeyword extends Mage_Catalog_Block_Product_List
 {
     protected $_suggestItems = null;
 

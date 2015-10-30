@@ -1,6 +1,6 @@
 <?php
 
-class BC_Search_Model_Source_Product_Attribute {
+class Bc_Search_Model_Source_Product_Attribute {
 
     public $_entityTypeId = null;
     public $_productAttributes = null;

@@ -1,52 +1,43 @@
 <?xml version="1.0"?>
 <config>
     <modules>
-        <BC_Search>
+        <Bc_Search>
             <version>0.1.0</version>
-        </BC_Search>
+        </Bc_Search>
     </modules>
     <frontend>
         <routers>
             <bc_search>
                 <use>standard</use>
                 <args>
-                    <module>BC_Search</module>
+                    <module>Bc_Search</module>
                     <frontName>search</frontName>
                 </args>
             </bc_search>
         </routers>
         <layout>
             <updates>
-                <search module="BC_Search">
+                <search module="Bc_Search">
                     <file>bcsearch.xml</file>
                 </search>
             </updates>
         </layout>
-        <translate>
-            <modules>
-                <BC_Search>
-                    <files>
-                        <default>BC_Search.csv</default>
-                    </files>
-                </BC_Search>
-            </modules>
-        </translate>
     </frontend>
 
     <global>
         <blocks>
             <search>
-                <class>BC_Search_Block</class>
+                <class>Bc_Search_Block</class>
             </search>
         </blocks>
         <helpers>
             <search>
-                <class>BC_Search_Helper</class>
+                <class>Bc_Search_Helper</class>
             </search>
         </helpers>
         <models>
             <search>
-                <class>BC_Search_Model</class>
+                <class>Bc_Search_Model</class>
             </search>
         </models>
     </global>
@@ -74,15 +65,6 @@
                 </admin>
             </resources>
         </acl>
-        <translate>
-            <modules>
-                <BC_Search>
-                    <files>
-                        <default>BC_Search.csv</default>
-                    </files>
-                </BC_Search>
-            </modules>
-        </translate>
     </adminhtml>
 
     <default>

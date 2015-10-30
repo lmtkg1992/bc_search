@@ -1,5 +1,5 @@
 <?php
-class BC_Search_Block_ResultSearch extends Mage_Catalog_Block_Product_List{
+class Bc_Search_Block_ResultSearch extends Mage_Catalog_Block_Product_List{
     public function __construct()
     {
         parent::__construct();
