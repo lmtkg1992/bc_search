@@ -16,13 +16,53 @@ class Bc_Search_Block_ResultSearch extends Mage_Catalog_Block_Product_List{
     {
         return Mage::helper('search/config')->getInterfaceShowAllResultsButton();
     }
+
+    public function searchProduct($aProductDatas){
+
+        $searchWords = Mage::helper('search')->getSearchedQuery();
+
+        $productids = array();
+        $aSearchAttributes = array('name','description','meta_keyword','meta_description');
+        foreach($aProductDatas as $product){
+            foreach($aSearchAttributes as $attribue){
+
+                if(isset($product[$attribue])){
+
+                    if (strpos(strtolower($product[$attribue]),strtolower($searchWords)) !== false) {
+                        $productids[] = $product['entity_id'];
+                    }
+                }
+            }
+        }
+
+        $productids = array_unique($productids);
+        $aProductCollections= Mage::getModel('catalog/product')->getCollection()->addAttributeToSelect('*')->addFieldToFilter('entity_id',array('in'=>array($productids)))->setPageSize(Mage::helper('search/config')->getSettingMaxProducts());
+
+        return $aProductCollections;
+    }
+
     public function getItems()
     {
 
-        $searchedProductCollection = Mage::getModel('search/search')->search(
-            Mage::helper('search')->getSearchedQuery()
-        );
+        $cache = Mage::app()->getCache();
 
+        $aProductDatas =  $cache->load("bc_search_ajax");
+
+        if(!$aProductDatas){
+            $products_collection = Mage::getModel('catalog/product')->getCollection();
+
+            $aProductDatas = array();
+            foreach($products_collection as $prod){
+                $product = Mage::getModel('catalog/product')->load($prod->getId());
+                $aProductDatas[$prod->getId()] = $product->getData();
+            }
+            $cache->save(json_encode($aProductDatas), "bc_search_ajax", array("bc_search_ajax"), 60*60);
+        }
+        else{
+            $aProductDatas = json_decode($aProductDatas,true);
+        }
+
+        $searchedProductCollection = $this->searchProduct($aProductDatas);
 
         $result = array();
         if (!is_null($searchedProductCollection)) {

@@ -35,11 +35,6 @@
                 <class>Bc_Search_Helper</class>
             </search>
         </helpers>
-        <models>
-            <search>
-                <class>Bc_Search_Model</class>
-            </search>
-        </models>
     </global>
 
     <adminhtml>
