@@ -1,5 +1,5 @@
 ## Bluecom Search Autocomplete and Suggest 
-Search Autocomplete and Suggest n provides customers with a dropdown of destination suggestions once they are past typing the third symbol in the search field.
+Search Autocomplete and Suggest provides customers with a dropdown of destination suggestions once they are past typing the third symbol in the search field.
 
 ### Installation
 1. Use FTP client to upload or copy all folders in the zip package to your Magento site root folder.
