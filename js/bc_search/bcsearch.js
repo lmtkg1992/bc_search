@@ -126,7 +126,9 @@ BcSearchAutoComplete.prototype = {
             try {
                 eval("var response = " +  request.responseText);
             } catch(e) {
-                location.reload();
+                this.targetElement.setStyle({
+                    backgroundImage: 'none'
+                });
             }
             this.updateSuggestList(response.suggest_list);
             this.autocompleter.onComplete({'responseText': response.product_list});

@@ -8,7 +8,7 @@
     </tabs>
     <sections>
         <search translate="label" module="search">
-            <label>Bluecome Search</label>
+            <label>Bluecom Search</label>
             <tab>bcsearchconfig</tab>
             <frontend_type>text</frontend_type>
             <sort_order>100</sort_order>
