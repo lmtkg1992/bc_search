@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Bc_Search>
+            <version>0.1.0</version>
+        </Bc_Search>
+    </modules>
+    <frontend>
+        <routers>
+            <bc_search>
+                <use>standard</use>
+                <args>
+                    <module>Bc_Search</module>
+                    <frontName>search</frontName>
+                </args>
+            </bc_search>
+        </routers>
+        <layout>
+            <updates>
+                <search module="Bc_Search">
+                    <file>bcsearch.xml</file>
+                </search>
+            </updates>
+        </layout>
+    </frontend>
+
+    <global>
+        <blocks>
+            <search>
+                <class>Bc_Search_Block</class>
+            </search>
+        </blocks>
+        <helpers>
+            <search>
+                <class>Bc_Search_Helper</class>
+            </search>
+        </helpers>
+    </global>
+
+    <adminhtml>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <search>
+                                            <title>Bluecom - Search Autocomplete</title>
+                                        </search>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+
+    <default>
+        <search>
+            <appearance>
+                <show_max_product>4</show_max_product>
+                <item_template><![CDATA[<img src="{thumbnail_url}" style="float:left; margin:3px 8px 0 0;" /><strong>{name}</strong><p style="font-size:0.9em;line-height:1.4em;margin:2px 0 0;">{short_description}</p>]]></item_template>
+                <show_buttion_all>0</show_buttion_all>
+                <thumbnail_size>75</thumbnail_size>
+                <preloader_image></preloader_image>
+            </appearance>
+        </search>
+    </default>
+
+</config>
