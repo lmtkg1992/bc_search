@@ -1,4 +1,6 @@
 //disable varien autocompleter
+if () {}
+
 if (Varien && typeof(Varien) === "object" && "searchForm" in Varien) {
     console.log('disable search form');
     Varien.searchForm.prototype.initAutocomplete = function(){}
